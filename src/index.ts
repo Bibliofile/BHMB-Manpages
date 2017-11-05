@@ -50,6 +50,7 @@ MessageBot.registerExtension('bibliofile/manpages', ex => {
     let template = tab.querySelector('template') as HTMLTemplateElement
     let pagesDiv = tab.querySelector('.pages') as HTMLDivElement
     ui.buildTemplate(template, pagesDiv, [
+      { selector: 'summary', text: name || '' },
       { selector: 'input', value: name || '' },
       { selector: 'textarea', value: content || '' }
     ])
@@ -66,6 +67,7 @@ MessageBot.registerExtension('bibliofile/manpages', ex => {
     tab.querySelectorAll('details').forEach(element => {
       let name = (element.querySelector('input') as HTMLInputElement).value
       let content = (element.querySelector('textarea') as HTMLTextAreaElement).value
+      ;(element.querySelector('summary') as HTMLElement).textContent = name
       if (name) pages[name.toLocaleUpperCase()] = content
     })
     ex.storage.set('pages', pages)
