@@ -4,9 +4,8 @@
 	(factory(global['@bhmb/bot']));
 }(this, (function (bot) { 'use strict';
 
-var html = "<template>\r\n  <details>\r\n    <summary></summary>\r\n    <div class=\"field\">\r\n      <label class=\"label\">Page Name</label>\r\n      <div class=\"control\">\r\n        <input type=\"text\" class=\"input\" data-for=\"name\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"field\">\r\n      <label class=\"label\">Page Contents</label>\r\n      <div class=\"control\">\r\n        <textarea class=\"textarea\" data-for=\"content\"></textarea>\r\n      </div>\r\n    </div>\r\n  </details>\r\n</template>\r\n\r\n<div id=\"manpages\" class=\"container is-widescreen\">\r\n  <h3 class=\"title\">Man Pages</h3>\r\n\r\n  <span class=\"button is-primary is-pulled-right\">+</span>\r\n  <p>This extension lets you define specific help commands for users. Each page can be accessed by typing the help command (defined\r\n    below) and the page name. Page names should be unique. To remove a page, leave the name blank, it will be removed when you next reload the bot.</p>\r\n\r\n  <div class=\"field\">\r\n    <label class=\"label\">Help Command</label>\r\n    <div class=\"control\">\r\n      <input class=\"input\" type=\"text\" placeholder=\"/?\">\r\n    </div>\r\n  </div>\r\n\r\n  <hr>\r\n\r\n  <div class=\"pages\">\r\n    <!-- pages go here -->\r\n  </div>\r\n</div>\r\n";
+var html = "<template>\r\n  <details>\r\n    <summary></summary>\r\n    <div class=\"field\">\r\n      <label class=\"label\">Page Name</label>\r\n      <div class=\"control\">\r\n        <input type=\"text\" class=\"input\" data-for=\"name\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"field\">\r\n      <label class=\"label\">Page Contents</label>\r\n      <div class=\"control\">\r\n        <textarea class=\"textarea\" data-for=\"content\"></textarea>\r\n      </div>\r\n    </div>\r\n  </details>\r\n\r\n  <hr>\r\n</template>\r\n\r\n<div id=\"manpages\" class=\"container is-widescreen\">\r\n  <h3 class=\"title\">Man Pages</h3>\r\n\r\n  <span class=\"button is-primary is-pulled-right\">+</span>\r\n  <p>This extension lets you define specific help commands for users. Each page can be accessed by typing the help command (defined\r\n    below) and the page name. Page names should be unique. To remove a page, leave the name blank, it will be removed when you next reload the bot. <span class=\"has-text-danger\">Warning: Server messages can trigger these commands. Don't cause an infinite loop.</span></p>\r\n\r\n  <div class=\"field\">\r\n    <label class=\"label\">Help Command</label>\r\n    <div class=\"control\">\r\n      <input class=\"input\" type=\"text\" placeholder=\"/?\">\r\n    </div>\r\n  </div>\r\n\r\n  <hr>\r\n\r\n  <div class=\"pages\">\r\n    <!-- pages go here -->\r\n  </div>\r\n</div>\r\n";
 
-// For Safari 9
 if (!Object.entries) {
     Object.entries = (obj) => Object.keys(obj).reduce((arr, key) => arr.concat([key, obj[key]]), []);
 }
@@ -73,6 +72,7 @@ bot.MessageBot.registerExtension('bibliofile/manpages', ex => {
         ui.removeTab(tab);
     };
 });
+//# sourceMappingURL=index.js.map
 
 })));
 //# sourceMappingURL=bundle.js.map
